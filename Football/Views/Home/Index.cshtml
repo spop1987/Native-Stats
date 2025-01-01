@@ -1,0 +1,37 @@
+@using Football.Models.ApiFootballResponseDtos
+@using Football.Views.Shared.Components.LeagueSection
+@model Dictionary<string, List<Match>>
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Football Matches</title>
+    </head>
+
+    <body>
+        <header style="background-color: white;">
+            <h1 style="font-family: Arial, sans-serif; font-size: 20px; margin: 20px 0; color: #000;">NATIVE STATS</h1>
+            <button>Register</button>
+            <button>Login</button>
+        </header>
+        <div class="switcher">
+            <button id="recent" class="active" onclick="filterMatches('FINISHED')">Recent Matches</button>
+            <button id="upcoming" onclick="filterMatches('SCHEDULED')">Upcoming Matches</button>
+        </div>
+        <main>
+            @foreach (var league in Model.Keys)
+            {
+                var viewModel = new LeagueSectionViewModel
+                {
+                    LeagueName = Model[league].FirstOrDefault()?.Competition.Name,
+                    LeagueId = league,
+                    Matches = Model[league]
+                };
+                @await Component.InvokeAsync("LeagueSection", viewModel)
+            }
+        </main>
+        <script src="~/js/site.js"></script>
+    </body>
+</html>

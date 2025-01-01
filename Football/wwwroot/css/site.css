@@ -1,0 +1,84 @@
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #282c34;
+  color: white;
+}
+
+.switcher {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.switcher button {
+  margin: 0 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.switcher button.active {
+  background-color: #007bff;
+  color: white;
+  border: none;
+}
+
+.league {
+  margin: 20px 10px;
+}
+
+.league-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.league-header h2 {
+  font-size: 20px;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+  scroll-behavior: smooth;
+  padding: 10px 0;
+}
+
+.carousel-controls {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.match-card {
+  flex: 0 0 80%;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  min-width: 250px;
+}
+
+.team img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.odds, .match-info, .team {
+  margin-bottom: 10px;
+  text-align: center;
+}

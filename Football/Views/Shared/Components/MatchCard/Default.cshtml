@@ -1,0 +1,21 @@
+@model Football.Models.ApiFootballResponseDtos.Match
+
+<div class="match-card" data-status="@Model.Status">
+    <div class="match-info">
+        <p>@Model.UtcDate.ToString("dd:MM:yyyy HH:mm")</p>
+    </div>
+    <div class="team">
+        <img src="@Model.HomeTeam.Crest" alt="@Model.HomeTeam.ShortName" />
+        <p>@Model.HomeTeam.Name</p>
+        @if(@Model.Score.FullTime.Home != null){
+            <p>F.T.: @Model.Score.FullTime.Home</p>
+        }
+    </div>
+    <div class="team">
+        <img src="@Model.AwayTeam.Crest" alt="@Model.AwayTeam.ShortName" />
+        <p>@Model.AwayTeam.Name</p>
+        @if(@Model.Score.FullTime.Away != null){
+            <p>F.T.: @Model.Score.FullTime.Away</p>
+        }
+    </div>
+</div>
