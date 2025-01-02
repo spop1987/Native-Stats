@@ -24,5 +24,5 @@ function filterMatches(status) {
 
     // Update button states
     document.getElementById('recent').classList.toggle('active', status === 'FINISHED');
-    document.getElementById('upcoming').classList.toggle('active', status === 'SCHEDULED');
+    document.getElementById('upcoming').classList.toggle('active', status === 'TIMED');
 }

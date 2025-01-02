@@ -16,8 +16,8 @@ namespace Football.Services
         public async Task<Dictionary<string, List<Match>>> GetMatches()
         {
             var matches = new Dictionary<string, List<Match>>();
-            var dateFrom = DateTime.UtcNow.AddMonths(-1).ToString("yyyy-MM-dd");
-            var dateTo = DateTime.UtcNow.AddMonths(1).ToString("yyyy-MM-dd");
+            var dateFrom = DateTime.UtcNow.AddDays(-7).ToString("yyyy-MM-dd");
+            var dateTo = DateTime.UtcNow.AddDays(7).ToString("yyyy-MM-dd");
             foreach (var league in _leagues)
             {
                 try

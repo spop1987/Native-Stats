@@ -6,14 +6,14 @@
     </div>
     <div class="team">
         <img src="@Model.HomeTeam.Crest" alt="@Model.HomeTeam.ShortName" />
-        <p>@Model.HomeTeam.Name</p>
+        <p>@Model.HomeTeam.ShortName</p>
         @if(@Model.Score.FullTime.Home != null){
             <p>F.T.: @Model.Score.FullTime.Home</p>
         }
     </div>
     <div class="team">
         <img src="@Model.AwayTeam.Crest" alt="@Model.AwayTeam.ShortName" />
-        <p>@Model.AwayTeam.Name</p>
+        <p>@Model.AwayTeam.ShortName</p>
         @if(@Model.Score.FullTime.Away != null){
             <p>F.T.: @Model.Score.FullTime.Away</p>
         }

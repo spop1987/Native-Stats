@@ -1,17 +1,20 @@
 @model Football.Views.Shared.Components.LeagueSection.LeagueSectionViewModel
 
 <section class="league">
-    <div class="league-header">
-        <h2>@Model.LeagueName</h2>
-    </div>
-    <div class="carousel-controls">
-        <button onclick="scrollCarousel(-1, '@Model.LeagueId')">←</button>
-        <button onclick="scrollCarousel(1, '@Model.LeagueId')">→</button>
-    </div>
-    <div class="carousel" id="carousel-@Model.LeagueId">
-        @foreach (var match in Model.Matches)
-        {
-            @await Component.InvokeAsync("MatchCard", match)
-        }
-    </div>
+    @if(@Model.Matches.Count > 0)
+    {
+        <div class="league-header">
+            <h2>@Model.LeagueName</h2>
+        </div>
+        <div class="carousel-controls">
+            <button onclick="scrollCarousel(-1, '@Model.LeagueId')">←</button>
+            <button onclick="scrollCarousel(1, '@Model.LeagueId')">→</button>
+        </div>
+        <div class="carousel" id="carousel-@Model.LeagueId">
+            @foreach (var match in Model.Matches)
+            {
+                @await Component.InvokeAsync("MatchCard", match)
+            }
+        </div>
+    }
 </section>
