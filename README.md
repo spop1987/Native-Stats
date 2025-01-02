@@ -31,6 +31,10 @@ The project uses the following NuGet packages:
 ### 1. Clone the Repository
 ```bash
 git clone https://github.com/spop1987/Native-Stats.git
-cd ./Football
+```
+
+### 2. Get into the directory Football and execute the commands:
+ ```bash
 dotnet build
 dotnet run
+```
