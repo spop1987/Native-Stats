@@ -7,7 +7,6 @@ namespace Football.Services
     public class FootballService : IFootballService
     {
         private readonly HttpClient _httpClient;
-        private const string BaseUrl = "http://api.football-data.org";
         private readonly List<string> _leagues;
         public FootballService(HttpClient httpClient)
         {
@@ -17,11 +16,13 @@ namespace Football.Services
         public async Task<Dictionary<string, List<Match>>> GetMatches()
         {
             var matches = new Dictionary<string, List<Match>>();
+            var dateFrom = DateTime.UtcNow.AddMonths(-1).ToString("yyyy-MM-dd");
+            var dateTo = DateTime.UtcNow.AddMonths(1).ToString("yyyy-MM-dd");
             foreach (var league in _leagues)
             {
                 try
                 {
-                    var response = await _httpClient.GetAsync($"competitions/{league}/matches");
+                    var response = await _httpClient.GetAsync($"competitions/{league}/matches?dateFrom={dateFrom}&dateTo={dateTo}");
                     response.EnsureSuccessStatusCode();
 
                     var content = await response.Content.ReadAsStringAsync();
